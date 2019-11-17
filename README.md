@@ -408,16 +408,8 @@ lbs.log()
 	</head>
 	<body>
 	  <script>
-			var dat = new Object();
-			dat.username = "aaaaaaaa";		
-			lbs.Server({
-			   type:"post",
-			   url:"要请求服务器的地址",
-			   data:dat,
-			   success:function(e){
-					alert(e);
-			   }
-			});
+			lbs.log("输出DEBUG");
+			lbs.log("参数一","参数二","参数三");
 	  </script>
 	</body>
 </html>
