@@ -25,9 +25,10 @@
 
 
 ## 开始使用
-### 引入：
-   在html hade节点中加入
+### 引入文件：
+```html
 	<script src="js/lbs.min.js"></script>
+```	
 * 通过Lbs.get.Id来获取html元素dom输
 <html>
 	<head>
