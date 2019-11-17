@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>标题</title>
+		<script src="js/lbs.min.js"></script>
+		<script>
+			function us(data){
+			    return data;
+			}
+		</script>
+	</head>
+	<body>
+		 
+			<main id="lbs"></main>
+			<main id="lbs2"></main>
+			<main id="lbs4"></main>
+			<main id="lbs5"></main>
+			<main id="lbs6"></main>
+		    <main id="lbs7"></main>
+			<script id="template" type="text/html">
+				   <h1>这是一个js模板</h1>
+			</script>
+			<!--例子2-->
+			<script id="template2" type="text/html">
+				<s:"hello world"> 
+			  <p><s:"你好这是动态设置现在时间是:"><span id="times"></span></p>
+				<s:setInterval(function(){ var myDate = new Date();  lbs.get.Id("times").innerHTML=myDate.toLocaleTimeString(); },100);>
+				<s:for(var i = 0; i<5; i++){>
+					<s:if(i==3){>
+					  <h2 class="x<s:i>">这是第三行</h2>
+				  <s:}else{>
+				    <h2>这是第<s:i>行i*i=<s:i*i></h2>
+					<s:}>
+				<s:}>
+				你好,我叫<s:datas.name>诞生了
+			</script>
+			<!--动态引入css/js-->
+			<script id="template3" type="text/html">
+				 你好，<s:us("我是自定义函数")>。。。。。
+				 @<link href="css/css.css">
+				 @<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+				 @<script src="js/test.js"></script>
+			</script>
+			<!--使用Lbs_lin编辑器可以对Js加密编译-->
+			<script id="template4" type="text/html">
+				  43,67,6B,4A,43,51,6B,67,49,43,59,6A,4D,6A,41,7A,4D,6A,41,37,4A,69,4D,79,4D,6A,6B,77,4F,54,73,6D,49,7A,49,31,4D,54,41,31,4F,79,59,6A,4D,6A,59,78,4E,54,6B,37,4A,69,4D,79,4D,54,45,31,4D,6A,73,6D,49,7A,49,7A,4E,44,6B,30,4F,79,59,6A,4D,7A,41,7A,4E,44,41,37,43,67,6B,4A,43,51,3D,3D
+			</script>
+			
+			<script id="template7" type="text/html">
+					<s:for(var j=0; j<13; j++){>
+						  <s:for(var k=0; k<j; k++) {>
+						     <p><s:k></p>
+						  	 <p>双重循环<s:Math.sin(k)/Math.cos(j)></p>
+						  <s:}>
+				     <s:}>
+			</script>
+			<script id="template7" type="text/html">
+					<s:for(var j=0; j<datas.length; j++){>
+						  <s:if(datas[j].name == "LBS框架"){>
+								<p class="x3"><s:datas[j].name></p>
+						  <s:}else{>
+							    <p><s:datas[j].name></p>
+						  <s:}>
+				     <s:}>
+			</script>
+			
+			<script>
+				  var test = lbs.assign("template",{});
+				  console.log(test.context);
+				  var test2 = lbs.assign("template2",{"name":"LBS框架"});
+				  lbs.display("lbs",test2);
+				  var test3 = lbs.assign("template3",{});
+				  lbs.display("lbs2",test3);
+				  var test4 =  lbs.assign("template4",{},false,"hash");
+				  lbs.display("lbs4",test4);
+				  //--实战
+				  {
+				  	//--定义一个数据集合
+				     var data = [
+				     		{"name":"李四"},
+				     	  {"name":"张三"},
+				     	  {"name":"LBS框架"},
+				     	  {"name":"王二"}
+				     ]
+				      var test7 =  lbs.assign("template7",data);
+				      lbs.display("lbs7",test7);
+				  } 
+				  var test7 =  lbs.assign("template4",{},false,"hash");
+				  //--这种方式请开启http模式
+				  //--第三个参数为true则第一个参数传的是外部文件模板文件后缀以.lin结尾,第四个参数则是回调模板
+				  lbs.assign("template/test",{},function(tenplate){
+				      lbs.display("lbs6",tenplate);
+				  });
+			</script>
+	</body>
+</html>
