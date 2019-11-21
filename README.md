@@ -388,9 +388,9 @@ Object.success  为Object类型表示请求服务器成功后返回的数据
 </html>
 ```
 
-### 通过Lbs.log 来输出调试信息
+### 通过Lbs.d 来输出调试信息
 
-lbs.log()
+lbs.d()
 
  ` 
  使用?debug=true 来开启debug
