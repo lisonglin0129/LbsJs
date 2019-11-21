@@ -408,8 +408,8 @@ lbs.log()
 	</head>
 	<body>
 	  <script>
-			lbs.log("输出DEBUG");
-			lbs.log("参数一","参数二","参数三");
+			lbs.d("输出DEBUG");
+			lbs.d("参数一","参数二","参数三");
 	  </script>
 	</body>
 </html>
