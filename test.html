@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>标题</title>
-		<script src="js/lbs.min.js"></script>
+		<script src="js/lbs.min.js?debug=true"></script>
 		<script>
 			function us(data){
 			    return data;
@@ -22,15 +22,11 @@
 			</script>
 			<!--例子2-->
 			<script id="template2" type="text/html">
-				<s:"hello world"> 
+			  <s:"hello world"> 
 			  <p><s:"你好这是动态设置现在时间是:"><span id="times"></span></p>
 				<s:setInterval(function(){ var myDate = new Date();  lbs.get.Id("times").innerHTML=myDate.toLocaleTimeString(); },100);>
 				<s:for(var i = 0; i<5; i++){>
-					<s:if(i==3){>
-					  <h2 class="x<s:i>">这是第三行</h2>
-				  <s:}else{>
-				    <h2>这是第<s:i>行i*i=<s:i*i></h2>
-					<s:}>
+					<h1><s:i></h1>
 				<s:}>
 				你好,我叫<s:datas.name>诞生了
 			</script>
@@ -66,7 +62,7 @@
 			
 			<script>
 				  var test = lbs.assign("template",{});
-				  console.log(test.context);
+				  lbs.d(test.context);
 				  var test2 = lbs.assign("template2",{"name":"LBS框架"});
 				  lbs.display("lbs",test2);
 				  var test3 = lbs.assign("template3",{});
@@ -88,9 +84,9 @@
 				  var test7 =  lbs.assign("template4",{},false,"hash");
 				  //--这种方式请开启http模式
 				  //--第三个参数为true则第一个参数传的是外部文件模板文件后缀以.lin结尾,第四个参数则是回调模板
-				  lbs.assign("template/test",{},function(tenplate){
+				  /**lbs.assign("template/test",{},function(tenplate){
 				      lbs.display("lbs6",tenplate);
-				  });
+				  });**/
 			</script>
 	</body>
 </html>
